@@ -1,0 +1,71 @@
+Read 'README.md' for a description of the WarrenGames custom libs.
+
+All the sources of this project (excepted for the SDL2 for which I am 
+not the author and not supplied in this project, has been written in C 
+and the wxWidgets framework written in C++), have been written with the 
+C++ language and needs at least a compiler that provides the 2017 C++ 
+standard features (like fileSystem header).
+--------------------
+
+The Warren games custom libs has three dependencies:
+- The SimpleDirectMediaLayer v2.x library (also called 'SDL2')
+- The WxWidgets framework
+- The CMake build tool.
+
+---------------------
+Implemented libraries purposes:
+'genericLib' : provides functionalities only based on the Standard Template Library of the C++ language, 
+	with for example, the filesystem header, a 2 and 3 dimensional template matrices with custom types. 
+	I use this small library in all of my C++ projects.
+'sdl2_wrapper' : provides the use of SDL2 library with a modern C++ approach (RAII/RFID with smart 
+	pointers). I use this project in several of my C++ game projects.
+'sdlLogoDisplay' : allow to display the SDL library logo at any game startup if needed.
+'sound system' : uses mainly SDL2 mixer library to play sounds while playing.
+'sprite move lib' : provides features to move any game protagonist along a given path made of different 
+	move vectors (not only a straight line) or change speed of a game actor while it is moving or anything
+	related to movement.
+'wxPrefPath' : useful with wxWidgets framework only, this library provide a path where the game or executable
+	can write its useful data.
+	
+----------------------
+Compilations examples:
+	Warning: by default and unless you modify the 'CMakeLists.txt' files from theses repository files,
+		the compiled libraries sources are made as static libraries, so the generated binaries won't populate
+		any shared libraries directory which means that unless you specify a directory that needs privileges
+		to install files inside (with the 'CMAKE_INSTALL_PREFIX' path at the time you run CMake) you won't need
+		to have privileges during the compilation, installation or use of theses libraries process (but if you 
+		need privileges to install one of my game that 'uses' theses libraries of course privileges are 
+		necessary, but it has nothing to do with the libraries, it is related to a given game).
+
+	With Ubuntu:
+		- Open a terminal in the same directory of this file you're currently reading:
+		- Go to the 'customLibs' subdirectory
+		- From there, run cmake with for example this command (comment are just below):
+		
+		cmake -G"Unix Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++-12 
+			-DCMAKE_INSTALL_PREFIX=../builtCustomLibs -S./ -B../build
+		
+		- Here objects files (*.o) are built in '../build' directory along with CMake's own files
+			whereas the header files and the static libraries are copied in '../builtCustomLibs'
+			once the building has been done with success.
+	--------
+	With Windows and visual studio
+		- You can use the cmake gui program to build the binaries. You can set a custom path to the install
+			directory with CMAKE_INSTALL_PREFIX string if you don't want to install the built binaries in
+			'C:\Program Files\some other directories then' which is the default installation path. With the 
+			cmake gui program you can choose the generator and add any options you'd like.
+
+--------
+How to use the warren games custom compiled libraries with my other games ?
+	- First, choose the most recent version of the game you'd like to compile, because older versions of my
+		games used a system of build in which every game had integrated already the libraries enumerated
+		above in the 'Implemented libraries purposes' chapter. Then in the sufficiently recent downloaded
+		game there should be a string variable named 'WARREN_LIBS_BUILDING_PATH' if not, then you probably
+		didn't download a recent version of the game.
+	- If the value of 'WARREN_LIBS_BUILDING_PATH' doesn't match the value of 'CMAKE_INSTALL_PREFIX' you
+		must change it to match the latter. The point here, is to indicate the 'CMakeLists.txt' in the 
+		'customLibs' subdirectory of this file you're currently reading in the following function:
+		'link_directories( ${WARREN_LIBS_STATIC_LIBS_PATH} )' .
+	- Once the second point done, the building of the game may be executed flawlessly.
+	
+	Have fun !
