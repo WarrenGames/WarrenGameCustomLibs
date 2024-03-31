@@ -1,0 +1,15 @@
+Warren custom libs v1.0.4 changes
+	- Added a function 'void setAllCoordinates(const TexturePosition& position);' in the "constAnimationDrawing.h" class.
+
+Warren custom libs v1.0.3 changes
+	- Added an 'else' condition in case of input stream error at line number 86 of 'animFileTextures.cpp' (see sdl2_wrapper
+		library in 'sources/advancedDrawing/texturesLoading/' directory
+
+Warren custom libs v1.0.2 changes
+	- Added the cmakeModules directory needed to compile the libraries.
+
+Warren custom libs v1.0.1 changes
+	- Added a constructor to 'sdl2::MixerModule' (in sdl2_wrapper library and 'sources/initialization/sdl2MixerInit.h' file)
+		in which you can supply a custom number of channels, the default channels number is 22 like before.
+	- Some private variables of the sdl2::JoystickEntity class have been renamed (the underscores have been removed). See in
+		sdl2_wrapper library and 'sources/joystick/joystickEntity.h' file.

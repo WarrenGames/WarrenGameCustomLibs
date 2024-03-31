@@ -1,0 +1,6 @@
+WarrenGames custom libs v1.0.0
+
+This github repository only contains libraries written with the C++ 
+language which purpose is to help you build the games from the 
+WarrenGames github account which you can reach at this address:
+https://github.com/WarrenGames
