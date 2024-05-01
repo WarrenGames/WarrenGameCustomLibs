@@ -1,3 +1,9 @@
+Warren custom libs v1.0.5 changes
+	- According to the use of theses libraries, the wxWidgets framework is no longer mandatory (see from line 5 to 8 of the main
+		CMakeLists.txt file for more explanations). You can choose a build without wxWidgets dependency.
+		For example the games 'Bob the blob' and 'SDL2_WarrenTetris' don't need wxWidgets at all. However in Breakout4, this is
+		optional and only necessary if you want to build the saves editor and the level editor, the game executable don't need it. 
+
 Warren custom libs v1.0.4 changes
 	- Added a function 'void setAllCoordinates(const TexturePosition& position);' in the "constAnimationDrawing.h" class.
 
