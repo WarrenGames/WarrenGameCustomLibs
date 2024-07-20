@@ -1,3 +1,8 @@
+Warren custom libs v1.0.6 changes
+	- The main CMakeLists.txt file has been modified, the line 8 doesn't contain the word 'BOOL' anymore, which led to a bug when
+		the 'USE_WX_WIDGETS_FRAMEWORK' value was set to OFF, cmake even searched the wxWidgets framework whereas the user of the 
+		libraries explicitly tell cmake to not search/use it in the configuration/compilation process.
+	
 Warren custom libs v1.0.5 changes
 	- According to the use of theses libraries, the wxWidgets framework is no longer mandatory (see from line 5 to 8 of the main
 		CMakeLists.txt file for more explanations). You can choose a build without wxWidgets dependency.
