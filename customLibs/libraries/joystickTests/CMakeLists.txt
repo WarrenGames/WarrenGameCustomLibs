@@ -1,26 +1,21 @@
 cmake_minimum_required(VERSION 3.13)
 
-project( soundSystem LANGUAGES CXX )
+project( joystickTests LANGUAGES CXX)
 
 if(UNIX)
 	include(GNUInstallDirs)
 endif(UNIX)
 
 set(HEADERS
-	sources/soundSystem/soundSystem.h
-	sources/soundSystem/soundChannelsSystem.h
-	sources/soundSystem/soundsListLoader.h
-	sources/soundSystem/soundsVolume.h
-	sources/soundSystem/soundsPathsConsts.h
-	sources/soundSystem/soundsPlayer.h
+	sources/joystickContexts/joystickInfosInterface.h
+	sources/joystickData/joystickCalibr.h
+	sources/joystickData/joystickGraphicsValues.h
 )
 
 set(SOURCES
-	sources/soundSystem/soundsPlayer.cpp
-	sources/soundSystem/soundChannelsSystem.cpp
-	sources/soundSystem/soundSystem.cpp
-	sources/soundSystem/soundsListLoader.cpp
-	sources/soundSystem/soundsVolume.cpp
+	sources/joystickContexts/joystickInfosInterface.cpp
+	sources/joystickData/joystickCalibr.cpp
+	sources/joystickData/joystickGraphicsValues.cpp
 )
 
 add_library(
@@ -36,7 +31,6 @@ target_include_directories(
 	PRIVATE ${SDL2_INCLUDE_DIRS}
 	PRIVATE ${SDL2_IMAGE_INCLUDE_DIRS}
 	PRIVATE ${SDL2_TTF_INCLUDE_DIRS}
-	PRIVATE ${SDL2_MIXER_INCLUDE_DIRS}
 	PRIVATE sources
 	PRIVATE ../genericLib/sources
 	PRIVATE ../sdl2_wrapper/sources
@@ -44,6 +38,9 @@ target_include_directories(
 
 target_link_libraries(	
 	${PROJECT_NAME} 
+	PRIVATE ${SDL2_LIBRARIES} 
+	PRIVATE ${SDL2_IMAGE_LIBRARIES} 
+	PRIVATE ${SDL2_TTF_LIBRARIES} 
 	PRIVATE genericLib
 	PRIVATE sdl2_wrapper
 )
@@ -53,14 +50,14 @@ set_target_properties(
 	PROPERTIES 
 	CXX_STANDARD 20 
 	CXX_STANDARD_REQUIRED YES 
-	CXX_EXTENSIONS ON 
+	CXX_EXTENSIONS ON
 	LINKER_LANGUAGE CXX
 )
 
-install( DIRECTORY sources/ DESTINATION includes/soundSystem FILES_MATCHING PATTERN "*.h" )
+install( DIRECTORY sources/ DESTINATION includes/joystickTests FILES_MATCHING PATTERN "*.h" )
 
 install(
-	TARGETS ${PROJECT_NAME}
+	TARGETS joystickTests
 	LIBRARY DESTINATION ${BuiltSharedLibsDir}
-	ARCHIVE DESTINATION ${BuiltStaticLibsDir}	
+	ARCHIVE DESTINATION ${BuiltStaticLibsDir}
 )

@@ -35,6 +35,7 @@ if( USE_WX_WIDGETS_FRAMEWORK )
 endif()
 
 add_subdirectory(libraries/genericLib)
+add_subdirectory(libraries/joystickTests)
 add_subdirectory(libraries/spriteMoveLib)
 add_subdirectory(libraries/sdl2_wrapper)
 add_subdirectory(libraries/sdlLogoDisplay)

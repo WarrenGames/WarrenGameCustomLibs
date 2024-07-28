@@ -32,7 +32,6 @@ target_include_directories(
 	PRIVATE sources
 	PRIVATE ../genericLib/sources
 	PRIVATE ../sdl2_wrapper/sources
-	PRIVATE ../commonFiles/sources
 )
 
 target_link_libraries(	

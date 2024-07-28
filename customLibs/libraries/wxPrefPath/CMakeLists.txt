@@ -44,7 +44,7 @@ set_target_properties(
 install( DIRECTORY sources/ DESTINATION includes/wxPrefPath FILES_MATCHING PATTERN "*.h" )
 
 install(
-		TARGETS wxPrefPath
-		LIBRARY DESTINATION ${BuiltSharedLibsDir}
-		ARCHIVE DESTINATION ${BuiltStaticLibsDir}
+	TARGETS wxPrefPath
+	LIBRARY DESTINATION ${BuiltSharedLibsDir}
+	ARCHIVE DESTINATION ${BuiltStaticLibsDir}
 )
