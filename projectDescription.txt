@@ -1,6 +1,12 @@
-WarrenGames custom libs v1.0.0
+WarrenGames custom libs v1.0.8
 
 This github repository only contains libraries written with the C++ 
 language which purpose is to help you build the games from the 
 WarrenGames github account which you can reach at this address:
-https://github.com/WarrenGames
+https://github.com/WarrenGames.
+
+That said, I made an effort so that code source compilation can be 
+convenient and there are branches that don't need this library pack,
+but only 'SDL2' and optionally 'wxWidgets' framework as dependencies,
+since some of theses libraries are included already in the game source 
+code.

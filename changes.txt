@@ -1,7 +1,12 @@
+Warren custom libs v1.0.8 changes
+	- A new library ('graphicalTextParagraph') has been added. Its purpose is to display a text with a given paragraph width
+		with a text coming from a file whether the text file is formatted or not ( i.e for example the text file has its words
+		on the same line and separated by sapces you finally got a text block in your game/application window).
+
 Warren custom libs v1.0.7 changes
 	- A new library ('joystickTests') has been added, particulary for the 0.1.11 version of my game 'Bob the blob'. This library
 		purpose is to have an interface to get informations (hats, axes and buttons number) about the first plugged joystick. It
-		also provide calibration of the joystick.
+		also provides calibration of the joystick.
 
 Warren custom libs v1.0.6 changes
 	- The main CMakeLists.txt file has been modified, the line 8 doesn't contain the word 'BOOL' anymore, which led to a bug when

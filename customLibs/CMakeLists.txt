@@ -4,7 +4,7 @@ project( WarrenCustomLibs LANGUAGES CXX)
 
 #If you don't need wxWidgets framework set the boolean below to OFF ('ON' else).
 #The games like 'Bob the blob' or 'SDL2_WarrenTetris' don't need wxWidgets framework at all.
-#In 'Breakout4' game you can choose if you don't want to use wxWidgets, but you won't build wxSavesEditor and wxLEvelEditor.
+#In 'Breakout4' game you can choose if you don't want to use wxWidgets, but you won't build wxSavesEditor and wxLevelEditor.
 set( USE_WX_WIDGETS_FRAMEWORK ON )
 
 set( CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON )
@@ -35,6 +35,7 @@ if( USE_WX_WIDGETS_FRAMEWORK )
 endif()
 
 add_subdirectory(libraries/genericLib)
+add_subdirectory(libraries/graphicalTextParagraph)
 add_subdirectory(libraries/joystickTests)
 add_subdirectory(libraries/spriteMoveLib)
 add_subdirectory(libraries/sdl2_wrapper)
