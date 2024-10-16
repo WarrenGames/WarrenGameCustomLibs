@@ -1,3 +1,7 @@
+Warren custom libs v1.0.10 changes
+	- Some functions and/or objects constructors parameters now use 'int' instead of 'unsigned int' for better comformance with
+		SDL2, SDL2_ttf and SDL2_mixer functions (this removes some warnings with the clang compiler). 
+
 Warren custom libs v1.0.9 changes
 	- A bug in the 'boxEvents.h' and 'boxEvents.cpp' has been fixed (the size of alpha characters was set with "'z' - 'a'" which
 		sets the size to 25 whereas the good value must be 26 ).

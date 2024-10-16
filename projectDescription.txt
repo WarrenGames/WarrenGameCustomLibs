@@ -1,4 +1,4 @@
-WarrenGames custom libs v1.0.8
+WarrenGames custom libs v1.0.9
 
 This github repository only contains libraries written with the C++ 
 language which purpose is to help you build the games from the 
@@ -10,3 +10,9 @@ convenient and there are branches that don't need this library pack,
 but only 'SDL2' and optionally 'wxWidgets' framework as dependencies,
 since some of theses libraries are included already in the game source 
 code.
+
+You can use these libraries as SDL2 wrapper or else for any purpose 
+(including commercial) separatly from my projects/repositories. 
+The dependencies of this repository are the SDL2 and wxWidgets and 
+they can be used for commercial projects but a mention of the use of
+theses libraries is wished but not mandatory.

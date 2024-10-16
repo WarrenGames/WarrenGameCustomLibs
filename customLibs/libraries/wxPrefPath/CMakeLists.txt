@@ -20,6 +20,10 @@ add_library(
 	${INC_DIRS}
 )
 
+source_group( TREE ${CMAKE_CURRENT_SOURCE_DIR}
+	FILES ${HEADERS} ${SOURCES}
+)
+
 target_include_directories(${PROJECT_NAME}
 	PRIVATE sources
 	PRIVATE ../genericLib/sources
@@ -44,7 +48,7 @@ set_target_properties(
 install( DIRECTORY sources/ DESTINATION includes/wxPrefPath FILES_MATCHING PATTERN "*.h" )
 
 install(
-	TARGETS wxPrefPath
+	TARGETS ${PROJECT_NAME}
 	LIBRARY DESTINATION ${BuiltSharedLibsDir}
 	ARCHIVE DESTINATION ${BuiltStaticLibsDir}
 )
