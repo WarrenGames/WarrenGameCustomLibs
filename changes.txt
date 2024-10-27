@@ -1,0 +1,47 @@
+Warren custom libs v1.0.11 changes (2024-10-27)
+	- For the TextureCombo and sdl2::sprite classes, a 'draw' member function with the 'TexturePosition' struct has been added.
+
+Warren custom libs v1.0.10 changes
+	- Some functions and/or objects constructors parameters now use 'int' instead of 'unsigned int' for better comformance with
+		SDL2, SDL2_ttf and SDL2_mixer functions (this removes some warnings with the clang compiler). 
+
+Warren custom libs v1.0.9 changes
+	- A bug in the 'boxEvents.h' and 'boxEvents.cpp' has been fixed (the size of alpha characters was set with "'z' - 'a'" which
+		sets the size to 25 whereas the good value must be 26 ).
+	
+Warren custom libs v1.0.8 changes
+	- A new library ('graphicalTextParagraph') has been added. Its purpose is to display a text with a given paragraph width
+		with a text coming from a file whether the text file is formatted or not ( i.e for example the text file has its words
+		on the same line and separated by sapces you finally got a text block in your game/application window).
+
+Warren custom libs v1.0.7 changes
+	- A new library ('joystickTests') has been added, particulary for the 0.1.11 version of my game 'Bob the blob'. This library
+		purpose is to have an interface to get informations (hats, axes and buttons number) about the first plugged joystick. It
+		also provides calibration of the joystick.
+
+Warren custom libs v1.0.6 changes
+	- The main CMakeLists.txt file has been modified, the line 8 doesn't contain the word 'BOOL' anymore, which led to a bug when
+		the 'USE_WX_WIDGETS_FRAMEWORK' value was set to OFF, cmake even searched the wxWidgets framework whereas the user of the 
+		libraries explicitly told cmake to not search/use it in the configuration/compilation process.
+	
+Warren custom libs v1.0.5 changes
+	- According to the use of theses libraries, the wxWidgets framework is no longer mandatory (see from line 5 to 8 of the main
+		CMakeLists.txt file for more explanations). You can choose a build without wxWidgets dependency.
+		For example the games 'Bob the blob' and 'SDL2_WarrenTetris' don't need wxWidgets at all. However in Breakout4, this is
+		optional and only necessary if you want to build the saves editor and the level editor, the game executable don't need it. 
+
+Warren custom libs v1.0.4 changes
+	- Added a function 'void setAllCoordinates(const TexturePosition& position);' in the "constAnimationDrawing.h" class.
+
+Warren custom libs v1.0.3 changes
+	- Added an 'else' condition in case of input stream error at line number 86 of 'animFileTextures.cpp' (see sdl2_wrapper
+		library in 'sources/advancedDrawing/texturesLoading/' directory
+
+Warren custom libs v1.0.2 changes
+	- Added the cmakeModules directory needed to compile the libraries.
+
+Warren custom libs v1.0.1 changes
+	- Added a constructor to 'sdl2::MixerModule' (in sdl2_wrapper library and 'sources/initialization/sdl2MixerInit.h' file)
+		in which you can supply a custom number of channels, the default channels number is 22 like before.
+	- Some private variables of the sdl2::JoystickEntity class have been renamed (the underscores have been removed). See in
+		sdl2_wrapper library and 'sources/joystick/joystickEntity.h' file.
