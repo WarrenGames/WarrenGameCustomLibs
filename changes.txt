@@ -1,5 +1,10 @@
+Warren custom libs v1.0.12 changes (2024-10-30)
+	- The classes 'HorizontalGradient' and 'VerticalGradient' have been improved (see sdl2_wrapper library in sources/texturing directory).
+		They are more convenient to use and I have added some caveat as commentary in the header files of theses classes with preconditions
+		to use them in adequation.
+
 Warren custom libs v1.0.11 changes (2024-10-27)
-	- For the TextureCombo and sdl2::sprite classes, a 'draw' member function with the 'TexturePosition' struct has been added.
+	- For the TextureCombo and sdl2::sprite classes, a 'draw' member function with the 'TexturePosition' struct as parameter has been added.
 
 Warren custom libs v1.0.10 changes
 	- Some functions and/or objects constructors parameters now use 'int' instead of 'unsigned int' for better comformance with
