@@ -2,18 +2,17 @@
 #include "logging/logsStruct.h"
 #include "texturing/rendererWindow.h"
 #include "customTypes/positionTypes.h"
-#include <cassert>
 
-sdl2::VerticalGradient::VerticalGradient(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, unsigned startValue, unsigned valueMax, const SDL_Rect& newRect, const SDL_Color& topCol, 
+sdl2::VerticalGradient::VerticalGradient(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, unsigned startValue, unsigned maxValue, const SDL_Rect& newRect, const SDL_Color& topCol, 
 									const SDL_Color& bottomCol, bool fromBottom):
 	gradient{logs, rndWnd, newRect, topCol, bottomCol, GradientTextureOnY},
 	boundingBox{newRect},
 	selectRect{0, 0, newRect.w, newRect.h},
 	destRect{newRect},
-	counterMaxValue{ static_cast<int>(valueMax) },
+	counterMaxValue{ static_cast<int>(maxValue) },
+	currentValue{ static_cast<int>( startValue ) },
 	fromBottomToTopGrad{fromBottom}
 {
-	assert( valueMax != 0 );
 	setNewCounterValue(static_cast<int>(startValue) );
 }
 
@@ -37,26 +36,48 @@ void sdl2::VerticalGradient::draw(sdl2::RendererWindow& rndWnd) const
 
 void sdl2::VerticalGradient::setNewCounterValue(int newValue)
 {
-	assert( static_cast<int>(newValue) <= counterMaxValue );
+	currentValue = newValue;
 	
-	if( fromBottomToTopGrad )
-		setWithBottomAsOrigin(static_cast<int>(newValue) );
-	else
-		setWithTopAsOrigin(static_cast<int>(newValue) );
+	updateGradient();
 }
 
-void sdl2::VerticalGradient::setWithBottomAsOrigin(int newValue)
+void sdl2::VerticalGradient::setMaxValue(int newMaxValue)
 {
-	selectRect.y = boundingBox.h - newValue * boundingBox.h / counterMaxValue;
-	selectRect.h = newValue * boundingBox.h / counterMaxValue;
+	counterMaxValue = newMaxValue;
+	
+	updateGradient();
+}
+
+int sdl2::VerticalGradient::getMaxValue() const
+{
+	return counterMaxValue;
+}
+
+int sdl2::VerticalGradient::getCurrentValue() const
+{
+	return currentValue;
+}
+
+void sdl2::VerticalGradient::setWithBottomAsOrigin()
+{
+	selectRect.y = boundingBox.h - currentValue * boundingBox.h / counterMaxValue;
+	selectRect.h = currentValue * boundingBox.h / counterMaxValue;
 	
 	destRect.y = boundingBox.y + boundingBox.h - selectRect.h;
 	destRect.h = selectRect.h;
 }
 
-void sdl2::VerticalGradient::setWithTopAsOrigin(int newValue)
+void sdl2::VerticalGradient::setWithTopAsOrigin()
 {
-	selectRect.h = newValue * boundingBox.h / counterMaxValue;
+	selectRect.h = currentValue * boundingBox.h / counterMaxValue;
 	
 	destRect.h = selectRect.h;
+}
+
+void sdl2::VerticalGradient::updateGradient()
+{
+	if( fromBottomToTopGrad )
+		setWithBottomAsOrigin();
+	else
+		setWithTopAsOrigin();
 }
