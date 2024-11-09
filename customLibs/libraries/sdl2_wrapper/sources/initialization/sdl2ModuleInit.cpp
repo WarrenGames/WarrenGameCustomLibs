@@ -21,6 +21,11 @@ sdl2::ModuleInit::~ModuleInit()
 		SDL_Quit();
 }
 
+sdl2::ModuleInit::operator bool() const
+{
+	return isSDL2initialized;
+}
+
 bool sdl2::ModuleInit::wasLoadingPerfect() const
 {
 	return isSDL2initialized;

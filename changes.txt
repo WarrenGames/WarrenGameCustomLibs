@@ -1,3 +1,11 @@
+Warren custom libs v1.0.13 changes (2024-11-09)
+	- An 'operator bool' member function has been added to the classes that handle SDL2, SDL2 ttf initializations so you can create these
+		classes in a if() statement likewise:
+		if( const sdl2::ModuleInit sdl2_init{ SDL_INIT_VIDEO, logs.error } )
+		{ 
+			// carrying on program execution
+		}
+
 Warren custom libs v1.0.12 changes (2024-10-30)
 	- The classes 'HorizontalGradient' and 'VerticalGradient' have been improved (see sdl2_wrapper library in sources/texturing directory).
 		They are more convenient to use and I have added some caveat as commentary in the header files of theses classes with preconditions

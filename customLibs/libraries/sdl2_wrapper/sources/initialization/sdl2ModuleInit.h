@@ -20,6 +20,7 @@ public:
 	ModuleInit( ModuleInit&& ) = default;
 	ModuleInit& operator= ( ModuleInit&& ) = default;
 	
+	operator bool() const;
 	bool wasLoadingPerfect() const;
 };
 

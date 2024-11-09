@@ -12,10 +12,10 @@
 			the class instance afterwards.
 		- In general, the max value should never be equal to 0, because that brings too much problems.
 		- If you ever want to modify the maxValue with function 'void setMaxValue(int newMaxValue);',
-			you must ensure the cuurent value is inferior or equal to the max value.
+			you must ensure the 'currentValue' integer, through 'int getCurrentValue() const;' function 
+			is inferior or equal to the max value.
 
 */
-
 #include "texturing/texturesCombo.h"
 
 struct AppLogFiles;

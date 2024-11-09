@@ -17,7 +17,8 @@ public:
 	TTFModule& operator= ( const TTFModule& ) = delete;
 	TTFModule( TTFModule&& ) = default;
 	TTFModule& operator= ( TTFModule&& ) = default;
-
+	
+	operator bool() const;
 	bool wasLoadingPerfect() const;
 };
 	

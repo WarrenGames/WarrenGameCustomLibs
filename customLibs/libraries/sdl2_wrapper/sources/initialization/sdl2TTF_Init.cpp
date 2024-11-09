@@ -19,6 +19,11 @@ sdl2::TTFModule::~TTFModule()
 		TTF_Quit();
 }
 
+sdl2::TTFModule::operator bool() const
+{
+	return isTTFinitialized;
+}
+
 bool sdl2::TTFModule::wasLoadingPerfect() const
 {
 	return isTTFinitialized;
