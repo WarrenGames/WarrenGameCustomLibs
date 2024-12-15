@@ -14,13 +14,13 @@ enum{
 constexpr SDL_Color SdlVersionTextColor = { 0, 0, 0, 255 };
 
 SDL_VersionDisplay::SDL_VersionDisplay(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const fs::path& languageFilePath, int fontSize, int squareSize):
-	arialFont{ logs.error, FreeSansFontPath, fontSize},
+	font{ logs.error, FreeSansFontPath, fontSize},
 	isLoadingPerfect{ true }
 {
 	if( const TextsBlocks languagesTexts{logs.error, languageFilePath, VersionMax } )
 	{
 		SDL_VERSION(&sdlVersion);
-		textTexture.texture.loadBlendedText(logs, rndWnd, arialFont, languagesTexts[0] + sdl2::getVersionNumber(sdlVersion), SdlVersionTextColor);
+		textTexture.texture.loadBlendedText(logs, rndWnd, font, languagesTexts[0] + sdl2::getVersionNumber(sdlVersion), SdlVersionTextColor);
 			
 		if( textTexture.texture )
 		{

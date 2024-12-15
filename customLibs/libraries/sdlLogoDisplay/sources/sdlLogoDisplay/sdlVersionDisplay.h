@@ -13,7 +13,7 @@ class SDL_VersionDisplay
 {
 private:
 	SDL_version sdlVersion;
-	sdl2::Font arialFont;
+	sdl2::Font font;
 	TextureCombo textTexture;
 	bool isLoadingPerfect;
 
