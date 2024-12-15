@@ -3,7 +3,7 @@
 
 #include "SDL_pixels.h"
 
-constexpr char BoxesArialFontPath[] = "fonts/arial.ttf";
+constexpr char FreeSansFontPath[] = "fonts/FreeSans.ttf";
 
 constexpr int BoxesMarginSize = 1;
 constexpr unsigned int BoxesCharSizeMax = 8;

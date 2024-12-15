@@ -11,7 +11,7 @@ namespace sdl2{ class RendererWindow; }
 class BoxContentDisplay
 {
 private:
-	sdl2::Font arialFont;
+	sdl2::Font font;
 	TextureCombo currentValue;
 
 public:

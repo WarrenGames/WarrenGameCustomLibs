@@ -48,7 +48,7 @@ void igl::font::appendArialStdPath(igl::font::Description& data)
 {
 	if( data.identifier == igl::font::ArialStandardPath )
 	{
-		data.fontPath = ArialFontPath;
+		data.fontPath = FreeSansFontPath;
 	}
 }
 

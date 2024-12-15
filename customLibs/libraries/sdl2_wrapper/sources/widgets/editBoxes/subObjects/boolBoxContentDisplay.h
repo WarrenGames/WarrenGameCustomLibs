@@ -10,7 +10,7 @@ namespace sdl2{ class RendererWindow; }
 class BoolBoxContentDisplay
 {
 private:
-	sdl2::Font arialFont;
+	sdl2::Font font;
 	TextureCombo trueTextTexture;
 	TextureCombo falseTextTexture;
 

@@ -19,6 +19,14 @@ ButtonFlat::ButtonFlat(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const st
 
 }
 
+ButtonFlat::ButtonFlat(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const std::string& texturePath, const TexturePosition& texturePosition):
+	texture{ logs, rndWnd, texturePath, texturePosition },
+	clicked{false},
+	hovered{false}
+{
+	
+}
+
 ButtonFlat::operator bool() const
 {
 	return texture.texture;

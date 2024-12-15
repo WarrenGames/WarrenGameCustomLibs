@@ -15,7 +15,7 @@ sdl2::TextureLoader::TextureLoader(AppLogFiles& logs, sdl2::RendererWindow& rndW
 		createSDL_Texture(logs, rndWnd);
 	}
 	else{
-		logs.error.wrRessourceCreationError("SDL_Surface", IMG_GetError() );
+		logs.error.wrRessourceCreationError("SDL_Surface with this path: " + texturePath, IMG_GetError() );
 	}
 }
 

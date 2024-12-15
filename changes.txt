@@ -1,3 +1,6 @@
+Warren custom libs v1.0.13 changes (2024-12-15)
+	- The libraries 'sdl2_wrapper' and 'sdlLogoDisplay' now use the 'FreeSans' ttf font by default which has a GPL license.
+
 Warren custom libs v1.0.13 changes (2024-11-09)
 	- An 'operator bool' member function has been added to the classes that handle SDL2, SDL2 ttf initializations so you can create these
 		classes in a if() statement likewise:

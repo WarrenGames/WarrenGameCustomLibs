@@ -4,6 +4,6 @@
 //Header needed for interface generator language ('igl' namespace)
 
 constexpr char NeuroFontPath[] = "fonts/neuropolitical rg.ttf";
-constexpr char ArialFontPath[] = "fonts/arial.ttf";
+constexpr char FreeSansFontPath[] = "fonts/FreeSans.ttf";
 
 #endif //FONST_PATHS_H

@@ -5,8 +5,8 @@
 #include "widgets/editBoxes/subObjects/editBoxes_consts.h"
 
 BoxContentDisplay::BoxContentDisplay(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, int fontSize, const std::string& valueInText):
-	arialFont{logs.error, BoxesArialFontPath, fontSize},
-	currentValue{ logs, rndWnd, arialFont, valueInText, BoxesEditBoxBlack, TexturePosition{} }
+	font{logs.error, FreeSansFontPath, fontSize},
+	currentValue{ logs, rndWnd, font, valueInText, BoxesEditBoxBlack, TexturePosition{} }
 {
 
 }
@@ -14,11 +14,11 @@ BoxContentDisplay::BoxContentDisplay(AppLogFiles& logs, sdl2::RendererWindow& rn
 
 void BoxContentDisplay::makeTextTextureFromString(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const std::string& valueInText, bool& canChange)
 {
-	if( canChange && arialFont )
+	if( canChange && font )
 	{
 		if( false == valueInText.empty() )
 		{
-			currentValue.texture.loadBlendedText(logs, rndWnd, arialFont, valueInText, BoxesEditBoxBlack);
+			currentValue.texture.loadBlendedText(logs, rndWnd, font, valueInText, BoxesEditBoxBlack);
 			setRectDimensions();
 		}
 		canChange = false;
