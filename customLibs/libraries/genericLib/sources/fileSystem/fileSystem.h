@@ -1,5 +1,5 @@
-#ifndef FILE_SYSTEM_H
-#define FILE_SYSTEM_H
+#ifndef GENERIC_LIB_FILE_SYSTEM_H
+#define GENERIC_LIB_FILE_SYSTEM_H
 
 
 #if( __GNUG__ >= 8 )
@@ -16,4 +16,4 @@
 	namespace fs = std::filesystem;
 #endif
 
-#endif//FILE_SYSTEM_H
+#endif //GENERIC_LIB_FILE_SYSTEM_H

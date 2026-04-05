@@ -35,6 +35,7 @@ public:
 	int get_y_position() const;
 	const AccurCoords& getPosition() const;
 	Offset getOffsetPosition() const;
+	const Offset& getDirVectors() const;
 	int get_x_norm() const;
 	int get_y_norm() const;
 	void reverse_x_vector();

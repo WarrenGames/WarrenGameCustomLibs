@@ -21,7 +21,7 @@ private:
 	BoxContentDisplay content;
 	
 	std::string stringOfSint;
-	std::reference_wrapper<int> SintValue;
+	std::reference_wrapper<int> sintValue;
 	bool hasStringChanged;
 
 public:

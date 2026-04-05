@@ -24,6 +24,8 @@ struct SoundSystem
 	SoundSystem( SoundSystem&& ) = default;
 	SoundSystem& operator= ( SoundSystem&& ) = default;
 	
+	void logNumberLoadedSoundError(AppLogFiles& logs, unsigned expectedSoundsNumber) const;
+	
 	bool wasLoadingPerfect() const;
 };
 

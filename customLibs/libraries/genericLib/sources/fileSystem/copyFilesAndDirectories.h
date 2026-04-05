@@ -1,5 +1,5 @@
-#ifndef COPY_EDIT_KYS_CONFIG_H
-#define COPY_EDIT_KYS_CONFIG_H
+#ifndef GENERIC_LIB_COPY_EDIT_KYS_CONFIG_H
+#define GENERIC_LIB_COPY_EDIT_KYS_CONFIG_H
 
 #include "fileSystem/fileSystem.h"
 
@@ -14,4 +14,4 @@ unsigned fileWithLogNoErase(AppLogFiles& logs, const fs::path& srcFilePath, cons
 void directoriesRecursively(AppLogFiles& logs, const fs::path& srcPath, const fs::path& destPath);
 
 }
-#endif //COPY_EDIT_KYS_CONFIG_H
+#endif //GENERIC_LIB_COPY_EDIT_KYS_CONFIG_H

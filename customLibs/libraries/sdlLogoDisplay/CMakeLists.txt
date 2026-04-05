@@ -2,19 +2,9 @@ cmake_minimum_required(VERSION 3.13)
 
 project( sdlLogoDisplay LANGUAGES CXX)
 
-if(UNIX)
-	include(GNUInstallDirs)
-endif(UNIX)
+file( GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "sources/*.h" )
 
-set(HEADERS
-	sources/sdlLogoDisplay/sdlVersionDisplay.h
-	sources/sdlLogoDisplay/logoDispContext.h
-)
-
-set(SOURCES
-	sources/sdlLogoDisplay/sdlVersionDisplay.cpp
-	sources/sdlLogoDisplay/logoDispContext.cpp
-)
+file( GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "sources/*.cpp" )
 
 add_library(
 	${PROJECT_NAME} 
@@ -47,19 +37,10 @@ target_link_libraries(
 	PRIVATE sdl2_wrapper
 )
 
-set_target_properties(	
-	${PROJECT_NAME} 
-	PROPERTIES 
-	CXX_STANDARD 20 
-	CXX_STANDARD_REQUIRED YES 
-	CXX_EXTENSIONS ON
-	LINKER_LANGUAGE CXX
-)
-
 install( DIRECTORY sources/ DESTINATION includes/sdlLogoDisplay FILES_MATCHING PATTERN "*.h" )
 
 install(
-		TARGETS ${PROJECT_NAME}
-		LIBRARY DESTINATION ${BuiltSharedLibsDir}
-		ARCHIVE DESTINATION ${BuiltStaticLibsDir}
+	TARGETS ${PROJECT_NAME}
+	LIBRARY DESTINATION ${BuiltSharedLibsDir}
+	ARCHIVE DESTINATION ${BuiltStaticLibsDir}
 )

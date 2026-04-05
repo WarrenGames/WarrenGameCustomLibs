@@ -1,5 +1,5 @@
-#ifndef LOG_FILE_OBJECT_H
-#define LOG_FILE_OBJECT_H
+#ifndef GENERIC_LIB_LOG_FILE_OBJECT_H
+#define GENERIC_LIB_LOG_FILE_OBJECT_H
 
 #include "fileSystem/fileSystem.h"
 #include <string>
@@ -44,4 +44,4 @@ public:
 	void flushLog();
 };
 
-#endif //LOG_FILE_OBJECT_H
+#endif //GENERIC_LIB_LOG_FILE_OBJECT_H

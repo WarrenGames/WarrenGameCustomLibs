@@ -1,5 +1,5 @@
-#ifndef INC_TEMPLATE_3D_MATRIX_H
-#define INC_TEMPLATE_3D_MATRIX_H
+#ifndef GENERIC_LIB_INC_TEMPLATE_3D_MATRIX_H
+#define GENERIC_LIB_INC_TEMPLATE_3D_MATRIX_H
 
 #include "matrices/matrixStructs.h"
 #include <vector>
@@ -217,5 +217,5 @@ public:
 };
 
 
-#endif // INC_TEMPLATE_3D_MATRIX_H
+#endif //GENERIC_LIB_INC_TEMPLATE_3D_MATRIX_H
 

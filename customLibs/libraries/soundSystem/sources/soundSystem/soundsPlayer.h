@@ -27,6 +27,7 @@ public:
 	void setSoundPlayPolicy(bool policy);
 	
 	void setErrorFlag();
+	std::size_t size() const;
 };
 
 #endif //SOUNDS_PLAYER_H

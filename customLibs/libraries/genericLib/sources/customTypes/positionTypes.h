@@ -1,5 +1,7 @@
-#ifndef USUAL_TYPES_H
-#define USUAL_TYPES_H
+#ifndef GENERIC_LIB_USUAL_TYPES_H
+#define GENERIC_LIB_USUAL_TYPES_H
+
+struct AccurCoords;
 
 struct Offset
 {
@@ -7,6 +9,7 @@ struct Offset
 	int y;
 	
 	Offset();
+	Offset(const AccurCoords& coords);
 	constexpr Offset(int new_x, int new_y):x{new_x},y{new_y}{}
 	Offset& operator*(double multi);
 	
@@ -38,4 +41,4 @@ struct AccurCoords
 	AccurCoords& operator= ( AccurCoords&& ) = default;
 };
 
-#endif //USUAL_TYPES_H
+#endif //GENERIC_LIB_USUAL_TYPES_H

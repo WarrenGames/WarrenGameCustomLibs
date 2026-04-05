@@ -1,5 +1,5 @@
-#ifndef LOGS_STRUCTS_H
-#define LOGS_STRUCTS_H
+#ifndef GENERIC_LIB_LOGS_STRUCTS_H
+#define GENERIC_LIB_LOGS_STRUCTS_H
 
 #include "logging/logFile.h"
 
@@ -20,4 +20,4 @@ struct AppLogFiles
 	void openFiles(const fs::path& path, const fs::path& errFile, const fs::path& warnFile);
 };
 
-#endif //LOGS_STRUCTS_H
+#endif //GENERIC_LIB_LOGS_STRUCTS_H

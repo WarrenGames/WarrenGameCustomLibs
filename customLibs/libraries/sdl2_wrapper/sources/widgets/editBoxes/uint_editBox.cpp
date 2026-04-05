@@ -122,9 +122,7 @@ void UintEditBox::updateString()
 void UintEditBox::changeReference(AppLogFiles& logs, unsigned& newRef, sdl2::RendererWindow& rndWnd)
 {
 	uintValue = std::ref(newRef);
-	updateString();
-	content.makeTextTextureFromString(logs, rndWnd, stringOfUint, hasStringChanged);
-	content.updateContentWhileLosingFocus(boxRect.getMainRect());
+	updateGraphics(logs, rndWnd);
 }
 
 bool UintEditBox::isMouseOverBox(const Offset& mousePosition) const

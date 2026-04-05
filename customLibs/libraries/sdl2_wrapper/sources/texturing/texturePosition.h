@@ -15,6 +15,7 @@ struct TexturePosition
 	explicit TexturePosition(const Offset& newPosition);
 	explicit TexturePosition(const Offset& newPosition, bool x_centered, bool y_centered);
 	explicit TexturePosition(const Offset& newPosition, bool bothCentered);
+	~TexturePosition() = default;
 	TexturePosition( const TexturePosition& ) = default;
 	TexturePosition& operator= ( const TexturePosition& ) = default;
 	TexturePosition( TexturePosition&& ) = default;

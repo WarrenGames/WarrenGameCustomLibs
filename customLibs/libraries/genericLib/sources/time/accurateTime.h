@@ -1,5 +1,5 @@
-#ifndef ACCURATE_TIME_H
-#define ACCURATE_TIME_H
+#ifndef GENERIC_LIB_ACCURATE_TIME_H
+#define GENERIC_LIB_ACCURATE_TIME_H
 
 #include <chrono>
 
@@ -26,6 +26,10 @@ public:
 	std::chrono::duration<long double, std::ratio<1> > getCurrentElapsedSecondsTime() const;
 	std::chrono::duration<long double, std::milli> getCurrentElapsedMillisecondsTime() const;
 	std::chrono::duration<long double, std::micro> getCurrentElapsedMicrosecondsTime() const;
+	
+	std::chrono::seconds getIntCurrentElapsedSecondsTime() const;
+	std::chrono::milliseconds getIntCurrentElapsedMillisecondsTime() const;
+	std::chrono::microseconds getIntCurrentElapsedMicrosecondsTime() const;
 };
 
-#endif //ACCURATE_TIME_H
+#endif //GENERIC_LIB_ACCURATE_TIME_H

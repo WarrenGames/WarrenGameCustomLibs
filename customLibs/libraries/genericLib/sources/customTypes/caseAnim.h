@@ -1,5 +1,5 @@
-#ifndef CASE_ANIM_STRUCT_TYPE_H
-#define CASE_ANIM_STRUCT_TYPE_H
+#ifndef GENERIC_LIB_CASE_ANIM_STRUCT_TYPE_H
+#define GENERIC_LIB_CASE_ANIM_STRUCT_TYPE_H
 
 #include "time/accurateTime.h"
 
@@ -19,4 +19,4 @@ struct CaseAnim
 	unsigned getModifiedIndex() const;
 };
 
-#endif //CASE_ANIM_STRUCT_TYPE_H
+#endif //GENERIC_LIB_CASE_ANIM_STRUCT_TYPE_H

@@ -63,5 +63,8 @@ public:
 
 bool isUserMouseInBox(const SDL_Rect& boxRect, const Offset& mousePosition);
 
-bool isOnlyMinusCharInSintString(const std::string& stringOfValue);
+bool isOnlyMinusCharInString(const std::string& stringOfValue);
+
+bool isOnlyDotCharInString(const std::string& stringOfValue);
+
 #endif //BOX_EVENTS_H

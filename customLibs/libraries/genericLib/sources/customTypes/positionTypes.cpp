@@ -6,6 +6,13 @@ Offset::Offset():
 {
 
 }
+
+Offset::Offset(const AccurCoords& coords):
+	x{ static_cast<int>(coords.x) },
+	y{ static_cast<int>(coords.y) }
+{
+	
+}
 	
 Offset& Offset::operator*(double multi)
 { 

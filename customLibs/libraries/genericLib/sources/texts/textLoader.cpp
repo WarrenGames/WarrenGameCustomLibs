@@ -40,7 +40,7 @@ TextsBlocks::TextsBlocks(LogFile& log, const fs::path& filePath, std::size_t exp
 	}
 }
 
-TextsBlocks::TextsBlocks(std::string& logString, const std::string& filePath, std::size_t expectedStringsNumber):
+TextsBlocks::TextsBlocks(std::string& logString, const fs::path& filePath, std::size_t expectedStringsNumber):
 	errorString{ErrorString},
 	isLoadingPerfect{true}
 {
@@ -50,12 +50,12 @@ TextsBlocks::TextsBlocks(std::string& logString, const std::string& filePath, st
 		checkExpectedLoadedTexts(logString, filePath, expectedStringsNumber);
 	}
 	else{
-		logString = "Error: couldn't open '" + filePath + "' file in order to load language text file.";
+		logString = "Error: couldn't open '" + filePath.string() + "' file in order to load language text file.";
 		isLoadingPerfect = false;
 	}
 }
 
-TextsBlocks::TextsBlocks(std::string& logString, const std::string& filePath):
+TextsBlocks::TextsBlocks(std::string& logString, const fs::path& filePath):
 	errorString{ErrorString},
 	isLoadingPerfect{true}
 {
@@ -64,7 +64,7 @@ TextsBlocks::TextsBlocks(std::string& logString, const std::string& filePath):
 		loadTextLines(languageFile);
 	}
 	else{
-		logString = "Error: couldn't open '" + filePath + "' file in order to load language text file.";
+		logString = "Error: couldn't open '" + filePath.string() + "' file in order to load language text file.";
 		isLoadingPerfect = false;
 	}
 }
@@ -151,8 +151,8 @@ void TextsBlocks::checkExpectedLoadedTexts(LogFile& log, const fs::path& filePat
 {
 	if( texts.size() != expectedStringsNumber )
 	{
-		log << std::string{"Error: loading lang file '" + filePath.string() + "' failed because size: " + std::to_string(texts.size() )
-										+ " is different from expected " + std::to_string(expectedStringsNumber) + " texts"};
+		log << std::string{"Error: loading language file '" + filePath.string() + "' failed because size: " + std::to_string(texts.size() )
+										+ " is different from expected " + std::to_string(expectedStringsNumber) + " texts\n"};
 		isLoadingPerfect = false;
 	}
 }
@@ -161,8 +161,8 @@ void TextsBlocks::checkExpectedLoadedTexts(std::string& logString, const fs::pat
 {
 	if( texts.size() != expectedStringsNumber )
 	{
-		logString = std::string{"Error: loading lang file '" + filePath.string() + "' failed because size: " + std::to_string(texts.size() )
-										+ " is different from expected " + std::to_string(expectedStringsNumber) + " texts"};
+		logString = std::string{"Error: loading language file '" + filePath.string() + "' failed because size: " + std::to_string(texts.size() )
+										+ " is different from expected " + std::to_string(expectedStringsNumber) + " texts\n"};
 		isLoadingPerfect = false;
 	}
 }

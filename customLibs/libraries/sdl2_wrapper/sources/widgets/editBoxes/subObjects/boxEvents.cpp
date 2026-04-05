@@ -207,7 +207,7 @@ void BoxEvents::resetAllKeys()
 
 bool BoxEvents::getCapsLockState()
 {
-	SDL_Keymod temp = SDL_GetModState();
+	SDL_Keymod temp = SDL_GetModState();//Allow to check if 'shift', 'caps lock', 'alt' or 'ctrl' are activated.
 	return (temp & KMOD_CAPS) == KMOD_CAPS;
 }
 
@@ -216,7 +216,12 @@ bool isUserMouseInBox(const SDL_Rect& boxRect, const Offset& mousePosition)
 	return mousePosition.x >= boxRect.x && mousePosition.x < boxRect.x + boxRect.w && mousePosition.y >= boxRect.y && mousePosition.y < boxRect.y + boxRect.h;
 }
 
-bool isOnlyMinusCharInSintString(const std::string& stringOfValue)
+bool isOnlyMinusCharInString(const std::string& stringOfValue)
 {
 	return stringOfValue.size() == 1 && stringOfValue[0] == '-';
+}
+
+bool isOnlyDotCharInString(const std::string& stringOfValue)
+{
+	return stringOfValue.size() == 1 && stringOfValue[0] == '.';
 }

@@ -10,6 +10,8 @@ SoundSystem::SoundSystem(AppLogFiles& logs, const std::vector< fs::path >& paths
 	soundChannels{ logs, pathsList[sounds::PATH_SND_CHANNEL_CONFIG] }
 {
 	assert( pathsList.size() == sounds::PATH_SND_MAX );
+	
+	logNumberLoadedSoundError(logs, expectedSoundsNumber);
 }
 
 bool SoundSystem::wasLoadingPerfect() const
@@ -18,4 +20,12 @@ bool SoundSystem::wasLoadingPerfect() const
 		&& soundsListLoader.wasLoadingPerfect() 
 		&& soundPlayer.wasLoadingPerfect() 
 		&& soundChannels.wasLoadingPerfect();
+}
+
+void SoundSystem::logNumberLoadedSoundError(AppLogFiles& logs, unsigned expectedSoundsNumber) const
+{
+	if( soundPlayer.size() != static_cast<std::size_t>(expectedSoundsNumber) )
+	{
+		logs.error << "Error: wrong loaded sounds chunks (" << soundPlayer.size() << ") versus expected sounds chunk number (" << expectedSoundsNumber << ").\n";
+	}
 }

@@ -11,7 +11,7 @@ SintEditBox::SintEditBox(AppLogFiles& logs, sdl2::RendererWindow& rndWnd, const 
 	cursor{logs, rndWnd, boxSize},
 	content{logs, rndWnd, fontSize, std::to_string(refValue)},
 	stringOfSint{std::to_string(refValue)},
-	SintValue{std::ref(refValue)},
+	sintValue{std::ref(refValue)},
 	hasStringChanged{true}
 {
 	updateGraphics(logs, rndWnd);
@@ -48,7 +48,7 @@ void SintEditBox::catchUserFocus(AppLogFiles& logs, sdl2::RendererWindow& rndWnd
 
 int SintEditBox::getCurrentValue() const
 {
-	return SintValue;
+	return sintValue;
 }
 
 void SintEditBox::addFigure(const std::string& figure)
@@ -69,12 +69,12 @@ void SintEditBox::deleteLastFigure()
 
 void SintEditBox::recordEntry(bool& quitEdition)
 {
-	if( events.getSpecificKey(BoxEventReturn) && false == stringOfSint.empty() && !isOnlyMinusCharInSintString(stringOfSint) )
+	if( events.getSpecificKey(BoxEventReturn) && false == stringOfSint.empty() && !isOnlyMinusCharInString(stringOfSint) )
 	{
 		quitEdition = true;
 		hasStringChanged = true;
 		std::istringstream valueStream{stringOfSint};
-		valueStream >> SintValue;
+		valueStream >> sintValue;
 		events.setSpecificKeyToFalse(BoxEventReturn);
 	}
 }
@@ -102,7 +102,7 @@ void SintEditBox::appendMinusToSintString()
 
 void SintEditBox::quitSintEdition(bool& quitEdition)
 {
-	if( false == isOnlyMinusCharInSintString(stringOfSint) && !stringOfSint.empty() 
+	if( false == isOnlyMinusCharInString(stringOfSint) && !stringOfSint.empty() 
 		&& ( ( false == isUserMouseInBox(boxRect.getMainRect(), events.getMousePosition() ) && events.getMouseLeftButtonState() ) || events.getSpecificKey(BoxEventEscape) ) )
 	{
 		quitEdition = true;
@@ -122,18 +122,16 @@ void SintEditBox::drawEverything(sdl2::RendererWindow& rndWnd)
 
 void SintEditBox::updateString()
 {
-	stringOfSint = std::to_string(SintValue);
+	stringOfSint = std::to_string(sintValue);
 	hasStringChanged = true;
 	std::istringstream stream{stringOfSint};
-	stream >> SintValue;
+	stream >> sintValue;
 }
 
 void SintEditBox::changeReference(AppLogFiles& logs, int& newRef, sdl2::RendererWindow& rndWnd)
 {
-	SintValue = std::ref(newRef);
-	updateString();
-	content.makeTextTextureFromString(logs, rndWnd, stringOfSint, hasStringChanged);
-	content.updateContentWhileLosingFocus(boxRect.getMainRect());
+	sintValue = std::ref(newRef);
+	updateGraphics(logs, rndWnd);
 }
 
 void SintEditBox::updateGraphics(AppLogFiles& logs, sdl2::RendererWindow& rndWnd)

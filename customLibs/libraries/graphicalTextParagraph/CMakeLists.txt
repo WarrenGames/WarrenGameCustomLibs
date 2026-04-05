@@ -2,19 +2,9 @@ cmake_minimum_required(VERSION 3.13)
 
 project( graphicalTextParagraph LANGUAGES CXX)
 
-if(UNIX)
-	include(GNUInstallDirs)
-endif(UNIX)
+file( GLOB_RECURSE HEADERS CONFIGURE_DEPENDS "sources/*.h" )
 
-set(HEADERS
-	sources/paragraph/makeTextTextures.h
-	sources/paragraph/paragraphData.h
-)
-
-set(SOURCES
-	sources/paragraph/makeTextTextures.cpp
-	sources/paragraph/paragraphData.cpp
-)
+file( GLOB_RECURSE SOURCES CONFIGURE_DEPENDS "sources/*.cpp" )
 
 add_library(
 	${PROJECT_NAME} 
@@ -45,15 +35,6 @@ target_link_libraries(
 	PRIVATE ${SDL2_TTF_LIBRARIES} 
 	PRIVATE genericLib
 	PRIVATE sdl2_wrapper
-)
-
-set_target_properties(	
-	${PROJECT_NAME} 
-	PROPERTIES 
-	CXX_STANDARD 20 
-	CXX_STANDARD_REQUIRED YES 
-	CXX_EXTENSIONS ON
-	LINKER_LANGUAGE CXX
 )
 
 install( DIRECTORY sources/ DESTINATION includes/graphicalTextParagraph FILES_MATCHING PATTERN "*.h" )

@@ -1,18 +1,13 @@
 #include "soundSystem/soundsPlayer.h"
 #include <cassert>
 
-SoundPlayer::SoundPlayer(std::vector< sdl2::Mix_ChunkPtr >& loadedSoundsChunks, unsigned expectedSoundsNum, int expectedGroupTagsNum_, 
-							bool soundPlayPolicy, int soundVolume):
+SoundPlayer::SoundPlayer(std::vector< sdl2::Mix_ChunkPtr >& loadedSoundsChunks, unsigned expectedSoundsNum, int expectedGroupTagsNum_, bool soundPlayPolicy, int soundVolume):
 	expectedGroupTagsNumber{ expectedGroupTagsNum_ },
 	soundIsActivated{ soundPlayPolicy },
 	isLoadingPerfect{ true }
 {
 	moveSounds(loadedSoundsChunks);
 	changeSoundsChunksVolume(soundVolume);
-	if( soundsChunks.size() != expectedSoundsNum )
-	{
-		isLoadingPerfect = false;
-	}
 }
 
 bool SoundPlayer::wasLoadingPerfect() const
@@ -56,4 +51,9 @@ void SoundPlayer::setSoundPlayPolicy(bool policy)
 void SoundPlayer::setErrorFlag()
 {
 	isLoadingPerfect = false;
+}
+
+std::size_t SoundPlayer::size() const
+{
+	return soundsChunks.size();
 }

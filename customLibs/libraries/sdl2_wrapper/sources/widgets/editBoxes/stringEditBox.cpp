@@ -162,8 +162,7 @@ void StringEditBox::drawEverything(sdl2::RendererWindow& rndWnd)
 void StringEditBox::changeReference(AppLogFiles& logs, std::string& newRef, sdl2::RendererWindow& rndWnd)
 {
 	ref = std::ref(newRef);
-	content.makeTextTextureFromString(logs, rndWnd, ref, hasStringChanged);
-	content.updateContentWhileLosingFocus(boxRect.getMainRect());
+	updateGraphics(logs, rndWnd);
 }
 
 void StringEditBox::updateGraphics(AppLogFiles& logs, sdl2::RendererWindow& rndWnd)

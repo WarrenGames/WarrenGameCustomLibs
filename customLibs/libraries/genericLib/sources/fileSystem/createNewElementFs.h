@@ -1,5 +1,5 @@
-#ifndef CREATE_DIRECTORY_FS_H
-#define CREATE_DIRECTORY_FS_H
+#ifndef GENERIC_LIB_CREATE_DIRECTORY_FS_H
+#define GENERIC_LIB_CREATE_DIRECTORY_FS_H
 
 #include "fileSystem/fileSystem.h"
 
@@ -15,4 +15,4 @@ unsigned mkNewFileIfMissing(const fs::path& fileFullPath);
 
 }
 
-#endif //CREATE_DIRECTORY_FS_H
+#endif //GENERIC_LIB_CREATE_DIRECTORY_FS_H

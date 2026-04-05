@@ -1,6 +1,7 @@
 #include "prefPath/wxPrefPath.h"
 #include "SDL_filesystem.h"
 #include "SDL_error.h"
+#include <iostream>
 
 wxPrefPathFinder::wxPrefPathFinder(const wxString& organization, const wxString& appName, int squareSize):
 	isPathFound{ false }
@@ -52,5 +53,6 @@ void wxPrefPathFinder::initialize(const wxString& organization, const wxString& 
 	else{
 		isPathFound = false;
 		errorString = SDL_GetError();
+		std::cerr << "Error: " << SDL_GetError() << '\n';
 	}
 }

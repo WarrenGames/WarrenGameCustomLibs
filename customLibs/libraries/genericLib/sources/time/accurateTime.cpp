@@ -55,3 +55,18 @@ std::chrono::duration<long double, std::micro> AccurateTimeDelay::getCurrentElap
 {
 	return std::chrono::steady_clock::now() - precedent;
 }
+
+std::chrono::seconds AccurateTimeDelay::getIntCurrentElapsedSecondsTime() const
+{
+	return std::chrono::duration_cast< std::chrono::seconds >( std::chrono::steady_clock::now() - precedent );
+}
+
+std::chrono::milliseconds AccurateTimeDelay::getIntCurrentElapsedMillisecondsTime() const
+{
+	return std::chrono::duration_cast< std::chrono::milliseconds >( std::chrono::steady_clock::now() - precedent );
+}
+
+std::chrono::microseconds AccurateTimeDelay::getIntCurrentElapsedMicrosecondsTime() const
+{
+	return std::chrono::duration_cast< std::chrono::microseconds >( std::chrono::steady_clock::now() - precedent );
+}

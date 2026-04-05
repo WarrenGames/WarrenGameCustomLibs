@@ -1,5 +1,5 @@
-#ifndef LOAD_TEXT_FILE_LINE_H
-#define LOAD_TEXT_FILE_LINE_H
+#ifndef GENERIC_LIB_LOAD_TEXT_FILE_LINE_H
+#define GENERIC_LIB_LOAD_TEXT_FILE_LINE_H
 
 #include "fileSystem/fileSystem.h"
 #include <vector>
@@ -19,8 +19,8 @@ public:
 	explicit TextsBlocks();
 	explicit TextsBlocks(LogFile& log, const fs::path& filePath);
 	explicit TextsBlocks(LogFile& log, const fs::path& filePath, std::size_t expectedStringsNumber);
-	explicit TextsBlocks(std::string& logString, const std::string& filePath, std::size_t expectedStringsNumber);
-	explicit TextsBlocks(std::string& logString, const std::string& filePath);
+	explicit TextsBlocks(std::string& logString, const fs::path& filePath, std::size_t expectedStringsNumber);
+	explicit TextsBlocks(std::string& logString, const fs::path& filePath);
 	~TextsBlocks() = default;
 	TextsBlocks( const TextsBlocks& ) = default;
 	TextsBlocks& operator= ( const TextsBlocks& ) = default;
@@ -46,4 +46,4 @@ private:
 	void loadWithExpectedLines(LogFile& log, const fs::path& filePath, std::size_t expectedLinesNumber);
 };
 
-#endif //LOAD_TEXT_FILE_LINE_H
+#endif //GENERIC_LIB_LOAD_TEXT_FILE_LINE_H

@@ -25,7 +25,7 @@ public:
 
 	~TextButton() = default;
 	TextButton( const TextButton& ) = delete;
-	TextButton& operator=(const TextButton& ) = delete;
+	TextButton& operator= ( const TextButton& ) = delete;
 	TextButton( TextButton&& ) = default;
 	TextButton& operator= ( TextButton&& ) = default;
 	

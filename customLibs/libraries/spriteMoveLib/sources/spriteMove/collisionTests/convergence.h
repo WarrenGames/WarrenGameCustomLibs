@@ -1,0 +1,6 @@
+#ifndef GAME_COMMON_COMPUTER_PLAYER_CONVERGENCE_H
+#define GAME_COMMON_COMPUTER_PLAYER_CONVERGENCE_H
+
+bool convergeOnGivenAxis(int axisNorm, double locationCoordinate, double destinationCoordinate);
+
+#endif //GAME_COMMON_COMPUTER_PLAYER_CONVERGENCE_H

@@ -100,6 +100,11 @@ Offset spriteMove::ObjectMoving::getOffsetPosition() const
 	return Offset{ static_cast<int>(position.x), static_cast<int>(position.y) };
 }
 
+const Offset& spriteMove::ObjectMoving::getDirVectors() const
+{
+	return dirVectors;
+}
+
 int spriteMove::ObjectMoving::get_x_norm() const
 {
 	return dirVectors.x;

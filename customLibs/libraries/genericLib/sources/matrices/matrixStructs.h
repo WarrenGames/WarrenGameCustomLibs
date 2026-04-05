@@ -1,5 +1,5 @@
-#ifndef TEMPLATE_MATRIX_STRUCTS_H
-#define TEMPLATE_MATRIX_STRUCTS_H
+#ifndef GENERIC_LIB_TEMPLATE_MATRIX_STRUCTS_H
+#define GENERIC_LIB_TEMPLATE_MATRIX_STRUCTS_H
 
 #include <cstddef>
 
@@ -42,4 +42,4 @@ bool isNewCoordToRightFromSecond(const Coord2D& newCoord, const Coord2D& second)
 
 }
 
-#endif //TEMPLATE_MATRIX_STRUCTS_H
+#endif //GENERIC_LIB_TEMPLATE_MATRIX_STRUCTS_H

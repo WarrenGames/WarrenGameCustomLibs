@@ -1,5 +1,5 @@
-#ifndef DATE_AND_TIME_H
-#define DATE_AND_TIME_H
+#ifndef GENERIC_LIB_DATE_AND_TIME_H
+#define GENERIC_LIB_DATE_AND_TIME_H
 
 #include <string>
 #include <ctime>
@@ -10,4 +10,4 @@ std::string returnCurrentTimeAndDate();
 
 std::string returnCurrentDate();
 
-#endif //DATE_AND_TIME_H
+#endif //GENERIC_LIB_DATE_AND_TIME_H
